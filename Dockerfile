@@ -1,4 +1,4 @@
-FROM php:7.4-fpm
+FROM php:8.0-fpm
 
 MAINTAINER j0nnybrav079
 
@@ -47,8 +47,6 @@ RUN apt-get update \
         bcmath \
         calendar \
         iconv \
-        intl \
-        json \
         opcache \
         pdo \
         pdo_pgsql \
@@ -67,7 +65,4 @@ RUN apt-get update \
             --with-freetype \
             --with-webp \
     && docker-php-ext-install gd \
-    && docker-php-ext-enable opcache \
-    && ln -s /usr/lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16/MagickWand-config /usr/bin \
-        && pecl install imagick \
-        && echo "extension=imagick.so" > /usr/local/etc/php/conf.d/ext-imagick.ini
+    && docker-php-ext-enable opcache
