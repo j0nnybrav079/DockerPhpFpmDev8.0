@@ -65,4 +65,6 @@ RUN apt-get update \
             --with-freetype \
             --with-webp \
     && docker-php-ext-install gd \
-    && docker-php-ext-enable opcache
+    && docker-php-ext-enable opcache \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install intl
